@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gym Progress Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            border: 2px solid black;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #111;
+            color: white;
+        }
+
+        input {
+            width: 80px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            cursor: pointer;
+        }
+
+        .note {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🏋️ Gym Progress Tracker</h1>
+<div class="subtitle">Consistency beats motivation 💪</div>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Days Gone</th>
+        <th>Current Body Weight (kg)</th>
+    </tr>
+
+    <tr>
+        <td><b>Vandit</b></td>
+        <td><input id="vanditDays" type="number"></td>
+        <td><input id="vanditWeight" type="number"></td>
+    </tr>
+
+    <tr>
+        <td><b>Ronit</b></td>
+        <td><input id="ronitDays" type="number"></td>
+        <td><input id="ronitWeight" type="number"></td>
+    </tr>
+
+    <tr>
+        <td><b>Mridul</b></td>
+        <td><input id="mridulDays" type="number"></td>
+        <td><input id="mridulWeight" type="number"></td>
+    </tr>
+</table>
+
+<button onclick="saveData()">💾 Save Update</button>
+
+<div class="note">
+    Data is saved on <b>your device only</b>. Others can only view.
+</div>
+
+<script>
+    function saveData() {
+        localStorage.setItem("vanditDays", vanditDays.value);
+        localStorage.setItem("vanditWeight", vanditWeight.value);
+
+        localStorage.setItem("ronitDays", ronitDays.value);
+        localStorage.setItem("ronitWeight", ronitWeight.value);
+
+        localStorage.setItem("mridulDays", mridulDays.value);
+        localStorage.setItem("mridulWeight", mridulWeight.value);
+
+        alert("Data saved successfully ✅");
+    }
+
+    function loadData() {
+        vanditDays.value = localStorage.getItem("vanditDays") || "";
+        vanditWeight.value = localStorage.getItem("vanditWeight") || "";
+
+        ronitDays.value = localStorage.getItem("ronitDays") || "";
+        ronitWeight.value = localStorage.getItem("ronitWeight") || "";
+
+        mridulDays.value = localStorage.getItem("mridulDays") || "";
+        mridulWeight.value = localStorage.getItem("mridulWeight") || "";
+    }
+
+    loadData();
+</script>
+
+</body>
+</html
